@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result-heading {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .alert-info {
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+            color: #495057;
+            border-radius: .25rem;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .suggestions {
+            margin-top: 10px;
+        }
+        .suggestions ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .suggestions ul li {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .btn-go-back {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Prediction Result</h1>
+        <div class="alert alert-info">
+            <p>{{ diagnosis_message }}</p>
+            <p>Clinical Score: <strong>{{ clinical_score }}</strong></p>
+            <p>Risk Level: <strong>{{ risk_level }}</strong></p>
+            <p>Treatment Recommendation: <strong>{{ treatment_recommendation }}</strong></p>
+            <p>Suggestions:</p>
+            <ul>
+                {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/" class="btn btn-primary">Go Back</a>
+    </div>
+</body>
+</html>
